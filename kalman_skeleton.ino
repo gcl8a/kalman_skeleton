@@ -56,9 +56,13 @@ void loop(void)
     float accelAngle = atan2(imu.ax, imu.az); //you'll need to figure out which axes you want to use!!!!!!!!!!!!!!!
 
     static float gyroAngle = 0;
-    gyroAngle += imu.gy * (float)deltaT * CONVERT_GYRO_TO_DEG_PER_MS; //you'll need to figure out which axis!!!!!!!!!!
     
-    float kalmanAngle = 0; //to be done by the student
+    gyroAngularVelocity = imu.gy * CONVERT_GYRO_TO_DEG_PER_MS; 
+    gyroAngle += gyroAngularVelocity * (float)deltaT;
+    
+    /////////////////////
+    float kalmanAngle = 0; //this is just a place holder for kalmanAngle -- you'll need to add all the code for the KF
+    /////////////////////
 
     //do PID
     //calc target angle
